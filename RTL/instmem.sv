@@ -1,5 +1,10 @@
-module Instmem(input logic [31:0] Address,output logic [31:0] Instruction); 
-    logic [31:0] mem[0:30];
+module Instmem (
+	input  logic [31:0] Address,
+	
+	output logic [31:0] Instruction
+); 
+
+    logic [31:0] mem [0:30];
 	
 	initial
 	begin
@@ -8,5 +13,5 @@ module Instmem(input logic [31:0] Address,output logic [31:0] Instruction);
 	
 	assign Instruction = mem[Address>>2];	
 
-endmodule
+endmodule: Instmem
 

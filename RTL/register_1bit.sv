@@ -1,10 +1,25 @@
-module register_1bit(input logic a, flush, clk, rst, output logic b);
+module register_1bit (
+	input  logic clk, 
+	input  logic rst, 
+	input  logic flush, 
+	input  logic a, 
+	
+	output logic b
+);
 	
 	always_ff @(posedge clk)
 	begin
-		if (rst) b <= 0;
-		else if (flush) b <= 0;
-		else b <= a;
+		if (rst) 
+		begin
+			b <= 0;
+		end
+		else if (flush) 
+		begin
+			b <= 0;
+		end
+		else begin
+			b <= a;
+		end
 	end
 
-endmodule
+endmodule: register_1bit

@@ -1,9 +1,21 @@
-module register(input logic [31:0] a,input logic clk, rst, output logic [31:0] b);
+module register (
+	input  logic        clk, 
+	input  logic        rst, 
+	input  logic [31:0] a,
+	
+	output logic [31:0] b
+);
 	
 	always_ff @(posedge clk)
 	begin
-		if (rst) b <= 32'd0;
-		else b <= a;
+		if (rst) 
+		begin
+			b <= 32'd0;
+		end
+		else 
+		begin
+			b <= a;
+		end
 	end
 
-endmodule
+endmodule: register
